@@ -1,0 +1,3 @@
+# these directories are too large to be included in the repository
+data/
+models/
