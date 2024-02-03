@@ -26,5 +26,5 @@ def create_metadata(directory:str, text) -> None:
     print(f'metadata.csv file created in {directory}')
 
 if __name__ == '__main__':
-    create_metadata('data/fruits', 'fruits123')
+    create_metadata('data/fruits', 'foo bar')
     
