@@ -14,6 +14,8 @@ def to_csv_field(text: str, seperator: str=',') -> str:
     if seperator in text and not (text.startswith('"') and not text.startswith('""')):
         return f'"{text}"'
     return text
+
+
 def to_csv_row(columns: list, seperator: str=',') -> str:
     """
     Convert a list of strings to a csv row
