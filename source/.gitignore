@@ -4,3 +4,4 @@ models/
 loras/checkpoint*
 loras/logs/
 loras/
+libraries/
