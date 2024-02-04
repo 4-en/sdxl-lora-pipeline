@@ -2,7 +2,7 @@
 
 import os
 
-def to_csv_field(text: str, seperator: str=',') -> str:
+def to_csv_field(text: str, seperator: str=',', always_escape=False) -> str:
     """
     Convert a string to a csv field
     :param text: string
@@ -11,7 +11,7 @@ def to_csv_field(text: str, seperator: str=',') -> str:
     """
     text = text.replace('"', '""')
 
-    if seperator in text and not (text.startswith('"') and not text.startswith('""')):
+    if (always_escape or seperator in text) and not (text.startswith('"') and not text.startswith('""')):
         return f'"{text}"'
     return text
 
@@ -23,7 +23,7 @@ def to_csv_row(columns: list, seperator: str=',') -> str:
     :param seperator: seperator to be used in the csv row
     :return: csv row
     """
-    return seperator.join([to_csv_field(column, seperator) for column in columns])
+    return seperator.join([to_csv_field(column, seperator, (i!=0)) for i, column in enumerate(columns)])
     
 
 def create_metadata(directory:str, text) -> None:
