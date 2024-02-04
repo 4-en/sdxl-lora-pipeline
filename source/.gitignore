@@ -4,3 +4,4 @@ models/
 diffusers/
 loras/checkpoint*
 loras/logs/
+loras/
