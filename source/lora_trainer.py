@@ -97,7 +97,7 @@ class LoRATrainer:
 
         # wait to give user opportunity to check and edit the metadata file
         if self.prompt_user:
-            input("Edit the metadata file if necessary and press Enter to continue.")
+            input("Edit the metadata file if necessary and press Enter to continue...")
 
         return True
 
@@ -178,10 +178,14 @@ class LoRATrainer:
 
         args_list = self._generate_args(kv_args)
 
-        print("Starting training...")
+        print(f"Starting training with: {input_dir}...")
         self._start_training(args_list)
         print(f"Training complete. Model saved to {output_dir}")
 
 
-trainer = LoRATrainer()
-trainer.train("data/fruits/", "fruit")
+def main():
+    trainer = LoRATrainer()
+    trainer.train("data/fruits/")
+
+if __name__ == "__main__":
+    main()
