@@ -185,7 +185,10 @@ class LoRATrainer:
 
 def main():
     trainer = LoRATrainer()
-    trainer.train("data/fruits/")
+    trainer.num_train_epochs = 4
+    trainer.learning_rate = 1e-04
+    trainer.checkpointing_steps = 20
+    trainer.train("data/pepper/")
 
 if __name__ == "__main__":
     main()
