@@ -7,6 +7,11 @@ Goal: Create a pipeline to create and use LoRAs with SDXL for image to image gen
 ```
 conda env create -f environment.yml
 ```
+- install diffusers if necessary
+```
+cd source
+install_requirements.bat
+```
 
 ## Training
 - create a directory with all images that shoud be used for training
