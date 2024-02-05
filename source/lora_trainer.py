@@ -57,7 +57,11 @@ class LoRATrainer:
         '''Get output directory for training. If not provided, create a new directory based on the input directory.'''
         output_dir = self.output_dir
         if output_dir == "loras":
-            input_name = os.path.basename(os.path.dirname(input_dir))
+            last_char = input_dir[-1]
+            if last_char == "/" or last_char == "\\":
+                input_name = os.path.basename(os.path.dirname(input_dir))
+            else:
+                input_name = os.path.basename(input_dir)
             if not input_name or input_name == "/" or input_name == "." or input_name == "":
                 input_name = 'new_lora'
             exists = True
